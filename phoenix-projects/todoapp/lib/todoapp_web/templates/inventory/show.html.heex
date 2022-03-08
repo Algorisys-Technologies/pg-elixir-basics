@@ -1,0 +1,23 @@
+<h1>Show Inventory</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @inventory.name %>
+  </li>
+
+  <li>
+    <strong>Prize:</strong>
+    <%= @inventory.prize %>
+  </li>
+
+  <li>
+    <strong>Game:</strong>
+    <%= @inventory.game %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.inventory_path(@conn, :edit, @inventory) %></span> |
+<span><%= link "Back", to: Routes.inventory_path(@conn, :index) %></span>

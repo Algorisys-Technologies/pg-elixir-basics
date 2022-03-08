@@ -1,0 +1,33 @@
+<h1>Show Todo</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @todo.title %>
+  </li>
+
+  <li>
+    <strong>Completed:</strong>
+    <%= @todo.completed %>
+  </li>
+
+  <li>
+    <strong>Priority:</strong>
+    <%= @todo.priority %>
+  </li>
+
+</ul>
+
+<h4>Comments </h4>
+
+<%= render TodoappWeb.CommentView, "form.html", Map.put(assigns, :action, Routes.todo_path(@conn, :create_comment)) %>
+
+<ul>
+  <%= for comment <- @todo.comments do %>
+    <li><%= comment.title %></li>
+  <% end %>
+</ul>
+
+<span><%= link "Edit", to: Routes.todo_path(@conn, :edit, @todo) %></span> |
+<span><%= link "Back", to: Routes.todo_path(@conn, :index) %></span>
